@@ -1,4 +1,7 @@
-import { SET_AUTHENTICATION_STORE } from "../constants";
+import {
+  SET_AUTHENTICATION_STORE,
+  SET_AUTHORIZATION_STORE,
+} from "../constants";
 
 const intialState = {
   user: null,
@@ -10,6 +13,8 @@ const intialState = {
 export const loginReducer = (state = intialState, action) => {
   switch (action.type) {
     case SET_AUTHENTICATION_STORE:
+      return Object.assign({}, state, action.payload);
+    case SET_AUTHORIZATION_STORE:
       return Object.assign({}, state, action.payload);
     default:
       return state;

@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./style.module.css";
@@ -11,10 +10,10 @@ function Navbar() {
   const { user } = useSelector((state) => state.user);
   const { firstName, lastName } = user;
   const dispatch = useDispatch();
-  const history = useHistory();
+
   const handleLogout = () => {
     dispatch(logoutUser());
-    history.push("/login");
+    window.location.href = "/login";
   };
   return (
     <nav className={classes.navCnt}>

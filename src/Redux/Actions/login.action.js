@@ -1,6 +1,10 @@
 import axios from "axios";
 import storage from "../../common/api/storage";
-import { BASE_URL, SET_AUTHENTICATION_STORE } from "../constants";
+import {
+  BASE_URL,
+  SET_AUTHENTICATION_STORE,
+  SET_AUTHORIZATION_STORE,
+} from "../constants";
 
 export const loginUser = (payload, history) => {
   return (dispatch) => {
@@ -27,7 +31,7 @@ export const loginUser = (payload, history) => {
               user: data.data,
             })
           );
-          debugger;
+
           history.push("/");
         } else {
           dispatch(
@@ -71,6 +75,13 @@ export const logoutUser = () => {
 export const setAuthenticationStore = (payload) => {
   return {
     type: SET_AUTHENTICATION_STORE,
+    payload: payload,
+  };
+};
+
+export const alreadyLogin = (payload) => {
+  return {
+    type: SET_AUTHORIZATION_STORE,
     payload: payload,
   };
 };

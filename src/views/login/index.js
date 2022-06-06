@@ -27,8 +27,6 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(props);
-    debugger;
     dispatch(loginUser(user, props.history));
     setUser({ username: "", password: "" });
   };
